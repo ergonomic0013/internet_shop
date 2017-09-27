@@ -1,0 +1,35 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+
+wellcome_page:
+    path: /wellcome
+    defaults: {_controller: "AppBundle:Lesson:wellcome" }
+    
+
+news_page:
+    path: /news/view/{tesla_new_car}
+    defaults: {_controller: "AppBundle:News:view" }
+    
+    
+paginator_page:
+    path: /news/page/{page}
+    defaults: {_controller: "AppBundle:News:page", page: 0 }
+    requirements:
+         page: '\d+' 
+         
+         
+advanced_page:
+    path: /news/page/{page}/{sort}/{title}/{order}/{desc}
+    defaults: {_controller: "AppBundle:News:advanced_page", sort: a-z, order: card }
+    requirements:
+         page: '\d+' 
+         
+         
+language_page:
+    path: /{_locale}/news
+    defaults: {_controller: "AppBundle:News:lang_page", _locale: ua }
+    requirements:
+         _locale: ua|ru|en 
+         
