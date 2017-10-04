@@ -1,0 +1,12 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}AppBundle:Shop:item{% endblock %}
+
+{% block content %}
+    <h1>{{ computers.name }}</h1>
+    <img src= {{ computers.image }} alt='Symfony!' style="wight:200px; height:200px" />
+    <p>{{ computers.description }}</p>
+    <p>{{ computers.price }}</p>
+    
+    <a href="{{ path('index') }}">{{ 'Go back' }}</a> 
+{% endblock %}

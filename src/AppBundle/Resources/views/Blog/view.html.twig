@@ -1,0 +1,14 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}AppBundle:Blog:view{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+
+<p>{{ post.description }}</p>
+
+<p><b>Date: {{ post.date }}</b></p>
+
+<p><a href="{{ path('index') }}">Go back</a></p>
+
+{% endblock %}

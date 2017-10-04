@@ -1,0 +1,15 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}AppBundle:Shop:index{% endblock %}
+
+{% block content %}
+    <h1>Categories</h1>
+{% for categories in categories  %}
+
+{#<p>{{ categories.name }}</p>#}
+<p><a href="{{ path('list', { 'name': categories.name } ) }}">{{ categories.name }}</a></p>
+
+
+{% endfor %}
+    
+{% endblock %}

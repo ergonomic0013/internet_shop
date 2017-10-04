@@ -1,0 +1,12 @@
+
+index:
+    path:     /index
+    defaults: { _controller: AppBundle:Shop:index }
+
+list:
+    path:     /list/{name}
+    defaults: { _controller: AppBundle:Shop:list }
+
+item:
+    path:     /item/{id}
+    defaults: { _controller: AppBundle:Shop:item }

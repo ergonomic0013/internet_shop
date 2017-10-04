@@ -33,3 +33,12 @@ language_page:
     requirements:
          _locale: ua|ru|en 
          
+         
+blog:
+    resource: '@AppBundle/Resources/config/routing.yml'
+    prefix: /blog/
+    
+    
+shop:
+    resource: '@AppBundle/Resources/config/routing_shop.yml'
+    prefix: /shop/

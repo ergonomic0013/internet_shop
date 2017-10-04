@@ -1,0 +1,18 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}AppBundle:Shop:list{% endblock %}
+
+{% block content %}
+
+    <h1>Computers</h1>
+    <ul>
+    {% for computers in computers %}
+    <li>
+        <a href="{{ path('item', { 'id': computers.id } ) }}">{{ computers.name }}</a>
+        <p>{{ computers.price }}</p>
+        <img src= {{ computers.image }} alt='Symfony!' style="wight:200px; height:200px" />
+    </li>
+    {% endfor %}
+    <a href="{{ path('index') }}">{{ 'Go back' }}</a>
+    </ul>
+{% endblock %}

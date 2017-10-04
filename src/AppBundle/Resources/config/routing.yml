@@ -1,0 +1,13 @@
+
+index:
+    path:     /
+    defaults: { _controller: AppBundle:Blog:index }
+
+view:
+    path:     /view/{id}
+    defaults: { _controller: AppBundle:Blog:view }
+
+add:
+    path:     /add
+    defaults: { _controller: AppBundle:Blog:add }
+
