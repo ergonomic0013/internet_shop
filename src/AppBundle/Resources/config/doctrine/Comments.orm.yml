@@ -1,0 +1,41 @@
+AppBundle\Entity\Comments:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CommentsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        text:
+            type: text
+        date:
+            type: datetime
+        postsId:
+            type: integer
+            column: posts_id
+        usersId:
+            type: integer
+            column: users_id
+        parentId:
+            type: integer
+            column: parent_id
+        depth:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+    manyToOne:
+        Users:
+            targetEntity: Users
+            inversedBy: Comments
+            joinColumn:
+                name: users_Id
+                referencedColumnName: id
+        Posts:
+            targetEntity: Posts
+            inversedBy: Comments
+            joinColumn:
+                name: posts_Id
+                referencedColumnName: id

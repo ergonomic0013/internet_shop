@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\Entity\Blog;
+namespace AppBundle\Entity;
 
 /**
- * Post
+ * Users
  */
-class Post
+class Users
 {
     /**
      * @var int
@@ -20,12 +20,17 @@ class Post
     /**
      * @var string
      */
+    private $surname;
+
+    /**
+     * @var string
+     */
     private $email;
 
     /**
      * @var string
      */
-    private $text;
+    private $lastLogin;
 
 
     /**
@@ -43,7 +48,7 @@ class Post
      *
      * @param string $name
      *
-     * @return Post
+     * @return Users
      */
     public function setName($name)
     {
@@ -63,11 +68,35 @@ class Post
     }
 
     /**
+     * Set surname
+     *
+     * @param string $surname
+     *
+     * @return Users
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
      * Set email
      *
      * @param string $email
      *
-     * @return Post
+     * @return Users
      */
     public function setEmail($email)
     {
@@ -87,27 +116,26 @@ class Post
     }
 
     /**
-     * Set text
+     * Set lastLogin
      *
-     * @param string $text
+     * @param string $lastLogin
      *
-     * @return Post
+     * @return Users
      */
-    public function setText($text)
+    public function setLastLogin($lastLogin)
     {
-        $this->text = $text;
+        $this->lastLogin = $lastLogin;
 
         return $this;
     }
 
     /**
-     * Get text
+     * Get lastLogin
      *
      * @return string
      */
-    public function getText()
+    public function getLastLogin()
     {
-        return $this->text;
+        return $this->lastLogin;
     }
 }
-

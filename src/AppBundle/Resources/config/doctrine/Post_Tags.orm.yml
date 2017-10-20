@@ -1,0 +1,31 @@
+AppBundle\Entity\Post_Tags:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\Post_TagsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        postsId:
+            type: integer
+            column: posts_id
+        tagsId:
+            type: integer
+            column: tags_id
+    lifecycleCallbacks: {  }
+    manyToOne:
+        Posts:
+            targetEntity: Posts
+            inversedBy: Post_Tags
+            joinColumn:
+                name: posts_id
+                referencedColumnName: id
+        Tags:
+            targetEntity: Tags
+            inversedBy: Post_Tags
+            joinColumn:
+                name: tags_id
+                referencedColumnName: id

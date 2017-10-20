@@ -3,10 +3,10 @@
 {% block title %}AppBundle:Shop:item{% endblock %}
 
 {% block content %}
-    <h1>{{ computers.name }}</h1>
-    <img src= {{ computers.image }} alt='Symfony!' style="wight:200px; height:200px" />
-    <p>{{ computers.description }}</p>
-    <p>{{ computers.price }}</p>
+    <h1>{{ post.name }}</h1>
+    <img src= {{ post.image }} alt='Symfony!' style="wight:200px; height:200px" />
+    <p>{{ post.description }}</p>
+    <p>{{ post.price }}</p>
     
     <a href="{{ path('index') }}">{{ 'Go back' }}</a> 
 {% endblock %}

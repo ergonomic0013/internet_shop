@@ -1,7 +1,7 @@
-AppBundle\Entity\Blog\Post:
+AppBundle\Entity\User:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\Blog\PostRepository
+    repositoryClass: AppBundle\Repository\UserRepository
     id:
         id:
             type: integer
@@ -12,9 +12,10 @@ AppBundle\Entity\Blog\Post:
         name:
             type: string
             length: 255
-        email:
+        password:
             type: string
             length: 255
-        text:
-            type: text
+        birthDate:
+            type: date
+            column: birth_date
     lifecycleCallbacks: {  }

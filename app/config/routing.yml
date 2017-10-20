@@ -33,7 +33,11 @@ language_page:
     requirements:
          _locale: ua|ru|en 
          
-         
+user:
+    resource: '@AppBundle/Resources/config/routing.yml'
+    
+    
+    
 blog:
     resource: '@AppBundle/Resources/config/routing.yml'
     prefix: /blog/

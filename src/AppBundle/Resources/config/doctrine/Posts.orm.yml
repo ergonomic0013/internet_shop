@@ -1,0 +1,38 @@
+AppBundle\Entity\Posts:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PostsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        text:
+            type: text
+        date:
+            type: datetime
+        userId:
+            type: integer
+            column: user_id
+        categoryId:
+            type: integer
+            column: category_id
+    lifecycleCallbacks: {  }
+    manyToOne:
+        Category:
+            targetEntity: Category
+            inversedBy: Posts
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+        Users:
+            targetEntity: Users
+            inversedBy: Posts
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

@@ -1,9 +1,10 @@
 <?php
 namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 class ShopController extends Controller
 {
+    public $catname;
+
     public function indexAction()
     {
         //echo 'This is indexAction';
@@ -13,33 +14,33 @@ class ShopController extends Controller
             'categories' => $categories
         ));
     }
-
     public function listAction($name)
-    {//описать иф который проверяет категорию или кейсы. и в ифе описать рендер переданной в этот экшн категории
-        //echo 'This is listAction';
-        //проверять если ли $name в массиве с категориями. в успешном случае подтягивать масив гетпостс.
-        
-        
-        $cat = $this->getCategories();
-        $posts = $this->getComputers();
+    {
+        //$this->catname = $name;
+        //$cat = $this->getCategories();
+        $posts = $this->getProducts($name);
+        $categories = $name;
         return $this->render('AppBundle:Shop:list.html.twig', array(
+            'categories' =>$categories,
             'computers' =>$posts
         ));
     }
-
-    public function itemAction($id)
+    public function itemAction($name, $id)
     {
-        //echo 'This is itemAction';
-        $cat = $this->getCategories();
-        $posts = $this->getComputers();
-        $c = $cat[$id - 1];
+        $posts = $this->getProducts($name);
         $post = $posts[$id - 1];
+        
         return $this->render('AppBundle:Shop:item.html.twig', array(
-            'categories' => $c,
-            'computers' => $post
+            'post' => $post
         ));
     }
-
+    
+    public function getProducts($name)
+    {
+        $fname = 'get'.ucfirst($name);
+        return $this->$fname();
+        
+    }
     protected function getCategories() 
     {
         return [
@@ -57,8 +58,6 @@ class ShopController extends Controller
             ],    
         ];   
     }
-
-
     protected function getComputers() 
     {
         return [
@@ -214,5 +213,60 @@ class ShopController extends Controller
             
         ];
     }
-
+    
+    protected function getMonitors() 
+    {
+        return [
+            [
+                'id' => '1',
+                'title' => 'Some title',
+                'name' => 'Monitor 1',
+                'description' => '111Lorem ipsum Lorem ipsum Lorem ipsum ',
+                'price' => '$9.99',
+                'image' => '/images/monitor.jpg',
+                'date' => date('d/m/Y')
+            ],
+            
+            [
+                'id' => '2',
+                'title' => 'Some title',
+                'name' => 'Monitor 2',
+                'description' => '111Lorem ipsum Lorem ipsum Lorem ipsum ',
+                'price' => '$9.98',
+                'image' =>'/images/monitor.jpg',
+                'date' => date('d/m/Y')
+            ],
+            
+            [
+                'id' => '3',
+                'title' => 'Some title',
+                'name' => 'Monitor 3',
+                'description' => '111Lorem ipsum Lorem ipsum Lorem ipsum ',
+                'price' => '$9.97',
+                'image' => '/images/monitor.jpg',
+                'date' => date('d/m/Y')
+            ],
+            
+            [
+                'id' => '4',
+                'title' => 'Some title',
+                'name' => 'Computer 4',
+                'description' => '111Lorem ipsum Lorem ipsum Lorem ipsum ',
+                'price' => '$9.96',
+                'image' => '/images/monitor.jpg',
+                'date' => date('d/m/Y')
+            ],
+                        
+            [
+                'id' => '5',
+                'title' => 'Some title',
+                'name' => 'Computer 5',
+                'description' => '111Lorem ipsum Lorem ipsum Lorem ipsum ',
+                'price' => '$9.95',
+                'image' => '/images/monitor.jpg',
+                'date' => date('d/m/Y')
+            ],
+            
+        ];
+    }
 }
